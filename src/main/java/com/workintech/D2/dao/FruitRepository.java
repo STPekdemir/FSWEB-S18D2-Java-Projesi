@@ -12,5 +12,5 @@ public interface FruitRepository extends JpaRepository<Fruit,Integer> {
     @Query("SELECT f FROM Fruit f ORDER BY f.price DESC ")
     List<Fruit> getByPriceDesc();
     @Query("SELECT f FROM Fruit f WHERE f.name ilike %:name%")
-    List<Fruit> getByParameter(String param);
+    List<Fruit> getByParameter(String name);
 }

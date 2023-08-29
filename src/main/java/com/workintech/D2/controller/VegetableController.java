@@ -2,8 +2,10 @@ package com.workintech.D2.controller;
 
 import com.workintech.D2.entity.Vegetable;
 import com.workintech.D2.services.VegetableService;
-import lombok.Data;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,7 +31,7 @@ public class VegetableController {
         return vegetableService.getById(id);
     }
     @PostMapping("/")
-    public Vegetable create(@RequestBody Vegetable veg){
+    public Vegetable create(@Validated @RequestBody Vegetable veg){
         return vegetableService.save(veg);
     }
     @PutMapping("/")
@@ -40,7 +42,7 @@ public class VegetableController {
     public List<Vegetable> getByName(@PathVariable String name){
         return vegetableService.getByParameter(name);
     }
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/param/{name}")
     public void delete(@PathVariable int id){
         vegetableService.deletById(id);
     }

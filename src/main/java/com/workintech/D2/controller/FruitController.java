@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
-@RequestMapping("/fruit")
+@RestController
+@RequestMapping("/fruits")
 public class FruitController {
     private FruitService fruitService;
     @Autowired
@@ -38,7 +38,7 @@ public class FruitController {
     public Fruit update(@RequestBody Fruit veg){
         return fruitService.save(veg);
     }
-    @GetMapping("/{name}")
+    @GetMapping("/param/{name}")
     public List<Fruit> getByName(@PathVariable String name){
         return fruitService.getByParameter(name);
     }

@@ -13,7 +13,6 @@ public class Vegetable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    @Positive
     private int id;
     @Column(name="name")
     private String name;
